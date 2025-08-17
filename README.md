@@ -63,10 +63,11 @@ Setup & Run Instructions – Agent 1: Customer Feedback Response Agent
 
 1. Open Google Colab - Go to [Google Colab](https://colab.research.google.com/) and open a new Python notebook.
 2. Install Required Dependencies - Run this in the first cell to install all required packages:
-   !pip install llama-index llama-index-core llama-index-embeddings-huggingface llama-index-llms-groq transformers
 
-3. Add Your Groq API Key - Replace the 'API_KEY' variable in your script with your Groq API key.
-4. Upload Script to Colab -
+!pip install llama-index llama-index-core llama-index-embeddings-huggingface llama-index-llms-groq transformers
+
+4. Add Your Groq API Key - Replace the 'API_KEY' variable in your script with your Groq API key.
+5. Upload Script to Colab -
 
    Option 1: Copy and paste your 'agent_feedback_response.py' content into a Colab cell and run it.
    Option 2: Upload your `.py` file directly:
@@ -75,9 +76,10 @@ Setup & Run Instructions – Agent 1: Customer Feedback Response Agent
    files.upload()  # Select your agent_feedback_response.py file
 
    Then run:
+   
    !python agent_feedback_response.py
 
-6. Run Example Review Response Generation- Once the script is loaded and API key is set, you can test it:
+7. Run Example Review Response Generation- Once the script is loaded and API key is set, you can test it:
 
 review = "The food was great but the service was a bit slow."
 sentiment = get_sentiment(review)
@@ -87,7 +89,7 @@ print(f"Response: {response}")
 
 6. Expected Output
    
-Example:
+Example,
 
 Sentiment: negative
 
