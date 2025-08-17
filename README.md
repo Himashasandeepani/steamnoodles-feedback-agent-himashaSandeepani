@@ -17,10 +17,15 @@ This agent is designed to automatically analyse customer reviews, detect sentime
 3. Chunking & Embedding Setup – Configures HuggingFace embeddings (BAAI/bge-small-en-v1.5) with SentenceSplitter to handle knowledge base text processing (future scalability for larger datasets).
 4. Tool Integration – Demonstrates LlamaIndex FunctionTool usage with simple addition and multiplication tools (extendable to more restaurant-related utilities).
 5. Execution Flow,
+
 Input: Raw customer review.
+
 Step 1: Sentiment classification.
+
 Step 2: Prompt generation using sentiment context.
+
 Step 3: LLM produces the final customer-facing reply.
+
 Output: Polite, sentiment-aware restaurant response.
 
 Example,
@@ -45,17 +50,18 @@ This agent analyses restaurant review data over time, infers sentiment from rati
 1. Data Loading & Cleaning,
 - Reads review data from "Restaurant reviews.csv".
 - Parses the Time column into a valid datetime format and removes rows with invalid timestamps.
-3. Sentiment Inference – Uses a simple rule-based function infer_sentiment() to classify reviews as:
+2. Sentiment Inference – Uses a simple rule-based function infer_sentiment() to classify reviews as:
 - Positive: Rating ≥ 4.0
 - Neutral: 3.0 ≤ Rating < 4.0
 - Negative: Rating < 3.0
 - Unknown: Invalid or missing ratings.
-4. Date Range Filtering – Filters reviews between start_date and end_date for focused trend analysis.
-5. Trend Aggregation – Groups filtered reviews by date and sentiment category, counting the number of occurrences per sentiment.
-6. Visualisation – Creates a stacked bar chart showing the daily distribution of positive, neutral, and negative reviews.
-7. Saves the visualisation as "sentiment_trend.png".
+3. Date Range Filtering – Filters reviews between start_date and end_date for focused trend analysis.
+4. Trend Aggregation – Groups filtered reviews by date and sentiment category, counting the number of occurrences per sentiment.
+5. Visualisation – Creates a stacked bar chart showing the daily distribution of positive, neutral, and negative reviews.
+6. Saves the visualisation as "sentiment_trend.png".
 
-Example
+Example,
+
 For the date range 2019-05-20 to 2019-05-26, the agent outputs a bar chart showing how customer sentiment varied day by day.
 
 
@@ -66,10 +72,11 @@ Setup & Run Instructions – Agent 1: Customer Feedback Response Agent
 
 !pip install llama-index llama-index-core llama-index-embeddings-huggingface llama-index-llms-groq transformers
 
-4. Add Your Groq API Key - Replace the 'API_KEY' variable in your script with your Groq API key.
-5. Upload Script to Colab -
+3. Add Your Groq API Key - Replace the 'API_KEY' variable in your script with your Groq API key.
+4. Upload Script to Colab -
 
    Option 1: Copy and paste your 'agent_feedback_response.py' content into a Colab cell and run it.
+   
    Option 2: Upload your `.py` file directly:
 
    from google.colab import file
@@ -79,7 +86,7 @@ Setup & Run Instructions – Agent 1: Customer Feedback Response Agent
    
    !python agent_feedback_response.py
 
-7. Run Example Review Response Generation- Once the script is loaded and API key is set, you can test it:
+5. Run Example Review Response Generation- Once the script is loaded and API key is set, you can test it:
 
 review = "The food was great but the service was a bit slow."
 
@@ -114,18 +121,20 @@ Setup & Run Instructions – Agent 2: Sentiment Plotting Agent
 
    !pip install pandas matplotlib
 
-4. Upload the Python Script & CSV File - In Colab, run this to upload your files:
+3. Upload the Python Script & CSV File - In Colab, run this to upload your files:
 
 from google.colab import files
 
 Upload agent_sentiment_plot.py,
 
 print("Upload agent_sentiment_plot.py")
+
 files.upload()
 
 Upload Restaurant reviews.csv,
 
 print("Upload Restaurant reviews.csv")
+
 files.upload()
 
 Make sure your CSV file is named exactly: Restaurant reviews.csv
@@ -134,7 +143,7 @@ Make sure your CSV file is named exactly: Restaurant reviews.csv
 
    !python agent_sentiment_plot.py
 
-6. Check the Output - The script will save the sentiment trend plot to:
+5. Check the Output - The script will save the sentiment trend plot to:
    sentiment_trend.png
 
    To view it directly in Colab:
@@ -142,7 +151,7 @@ Make sure your CSV file is named exactly: Restaurant reviews.csv
 from IPython.display import Image
 Image(filename="sentiment_trend.png")
 
-7. Example Run in Colab - If your dataset contains ratings and timestamps, you might run:
+6. Example Run in Colab - If your dataset contains ratings and timestamps, you might run:
 
 from agent_sentiment_plot import plot_sentiment_trends
 plot_sentiment_trends("2019-05-20", "2019-05-26")
