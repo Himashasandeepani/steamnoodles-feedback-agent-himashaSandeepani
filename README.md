@@ -82,9 +82,13 @@ Setup & Run Instructions – Agent 1: Customer Feedback Response Agent
 7. Run Example Review Response Generation- Once the script is loaded and API key is set, you can test it:
 
 review = "The food was great but the service was a bit slow."
+
 sentiment = get_sentiment(review)
+
 response = generate_response(review, sentiment)
+
 print(f"Sentiment: {sentiment}")
+
 print(f"Response: {response}")
 
 6. Expected Output
@@ -111,6 +115,7 @@ Setup & Run Instructions – Agent 2: Sentiment Plotting Agent
    !pip install pandas matplotlib
 
 4. Upload the Python Script & CSV File - In Colab, run this to upload your files:
+
 from google.colab import files
 
 Upload agent_sentiment_plot.py,
